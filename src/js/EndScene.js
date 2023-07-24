@@ -10,10 +10,10 @@ export default class EndScene extends Phaser.Scene {
   create() {
     this.add.sprite(config.width / 2, config.height / 2,"mainBG");
           this.add.image(config.width/2,config.height/2,"overlay");
-          this.replaybutton=this.add.image(config.width / 2,config.height / 2,"replaybutton").setScale(2);
+          this.replaybutton=this.add.image(config.width / 2,config.height / 2,"replaybutton");
           this.replaybutton.setInteractive();
           this.replaybutton.on("pointerover",function(){
-            this.replaybutton.setTexture("replaybuttonhover").setScale(1.5); 
+            this.replaybutton.setTexture("replaybuttonhover"); 
           },this);
           this.replaybutton.on("pointerout",function(){
             this.replaybutton.setTexture("replaybutton");
@@ -24,8 +24,9 @@ export default class EndScene extends Phaser.Scene {
             this.cameras.main.once(
               "camerafadeoutcomplete",
               function (camera) {
-                game.scene.start("StartScene");
                 game.scene.stop('EndScene');
+                game.scene.start("StartScene");
+                
                 });
           },this);
 

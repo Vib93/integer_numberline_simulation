@@ -200,12 +200,12 @@ export default class GameScene1 extends Phaser.Scene {
         
       },
       onComplete:function(){
-        e.time.delayedCall(1000,function(){
+        e.time.delayedCall(3000,function(){
         game.scene.stop("GameScene1");
         game.scene.stop("TutorialScene");      
         game.scene.start("EndScene");},this);
       }
-    },this);  console.log(this);       
+    },this);
   }
   update() { }
 
