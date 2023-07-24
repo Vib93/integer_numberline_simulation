@@ -22,7 +22,6 @@ export default class GameScene extends Phaser.Scene {
     this.add.sprite(config.width / 2, config.height / 2,"mainBG");
     this.add.sprite(config.width / 2, config.height / 2-160,"textbubble1");
     this.numberline();
-    for(var i=0;i<numberbox.length;i++){
     this.zerobox=this.add.sprite(config.width / 2, config.height / 2+150,"zerobox").setScale(0.8);
     this.zerobox.setInteractive({useHandCursor:true,draggable: true,pixelPerfect: true});
       this.input.on('drag',function(pointer){
