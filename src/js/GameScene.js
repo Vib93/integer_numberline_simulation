@@ -14,7 +14,7 @@ export default class GameScene extends Phaser.Scene {
   
   preload() {}
   create() {
-    
+    numberbox=[];
     const a=this;
     
     this.cameras.main.fadeIn(500, 255, 255, 255);
@@ -22,13 +22,13 @@ export default class GameScene extends Phaser.Scene {
     this.add.sprite(config.width / 2, config.height / 2,"mainBG");
     this.add.sprite(config.width / 2, config.height / 2-160,"textbubble1");
     this.numberline();
-    
+    for(var i=0;i<numberbox.length;i++){console.log(numberbox[i]);}
     this.zerobox=this.add.sprite(config.width / 2, config.height / 2+150,"zerobox").setScale(0.8);
     this.zerobox.setInteractive({useHandCursor:true,draggable: true,pixelPerfect: true});
       this.input.on('drag',function(pointer){
       this.zerobox.x=pointer.x;
       this.zerobox.y=pointer.y;
-      for(var i=0;i<8;i++){
+      for(var i=0;i<numberbox.length;i++){
         if(Phaser.Geom.Rectangle.Contains(numberbox[i].getBounds(),pointer.x,pointer.y)){
         numberbox[i].setTexture("dropenable");
         
@@ -86,7 +86,7 @@ export default class GameScene extends Phaser.Scene {
 
   numberline() {
     this.add.image(config.width / 2-174,config.height / 2-50,"arrowleft");
-    this.add.image(config.width / 2+174,config.height / 2-50,"arrowright");
+    this.add.image(config.width / 2+173,config.height / 2-50,"arrowright");
     this.graphics=this.add.graphics({lineStyle:{width:2,color:0x000000}});
     var startLine=new Phaser.Geom.Line(config.width / 2-180,config.height / 2-50,config.width / 2+175,config.height / 2-50);
     this.graphics.strokeLineShape(startLine);

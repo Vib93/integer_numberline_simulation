@@ -12,7 +12,7 @@ export default class GameScene1 extends Phaser.Scene {
 
   preload() {}
   create() {
-    
+    flag=0;r=0;f=0;prevquestion=[];
     this.add.sprite(config.width / 2, config.height / 2,"mainBG");
     var startx=config.width / 2-180;
     const starty=config.height / 2-50;
