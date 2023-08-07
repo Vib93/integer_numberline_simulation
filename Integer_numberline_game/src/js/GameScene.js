@@ -128,8 +128,7 @@ export default class GameScene extends Phaser.Scene {
     this.graphics.strokeLineShape(startLine);
     for (var i = 1; i < 9; i++) {
       this.add
-        .image(
-          config.width / 2 - 180 + i * 40,
+        .image(          config.width / 2 - 180 + i * 40,
           config.height / 2 - 50,
           "divline"
         )
