@@ -42,10 +42,13 @@ export default class GameScene1 extends Phaser.Scene {
         if(target.lineLength/(40*n)>1){
           this.add.image(startx - 40*(n-1),config.height / 2-50,"divline").setScale(0.5);
           numberbox.push(this.add.image(startx - 40*(n-1),config.height / 2-20,"numberbox").setScale(0.8));
-          numberbox[numberbox.length-1].name=(numberbox[0].name*1-n).toString();
+          if(numberbox[0].name!='filled'){numberbox[numberbox.length-1].name=(numberbox[0].name*1-n).toString();}
+          else{numberbox[numberbox.length-1].name=(0*1-n).toString();}
           this.add.image(endx + 40*(n-1),config.height / 2-50,"divline").setScale(0.5);
           numberbox.push(this.add.image(endx + 40*(n-1),config.height / 2-20,"numberbox").setScale(0.8));
-          numberbox[numberbox.length-1].name=(numberbox[7].name*1+n).toString();
+          if(numberbox[7].name!='filled'){numberbox[numberbox.length-1].name=(numberbox[7].name*1+n).toString();}
+          else{numberbox[numberbox.length-1].name=(0*1+n).toString();}
+          
           n=n+1;}},
           onComplete: (tween, target) =>{
             this.k=numberbox[15].name*1;
