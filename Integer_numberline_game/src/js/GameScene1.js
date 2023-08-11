@@ -142,6 +142,7 @@ export default class GameScene1 extends Phaser.Scene {
           },this);
         }
         else{
+          numberbox[m].setTexture("numberbox");
           this.questionbox.setPosition(config.width / 2, config.height / 2+50);
           this.bottommsg.setTexture("tryagain").setDepth(20);
           f++;
