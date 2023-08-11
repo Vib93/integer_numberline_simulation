@@ -114,7 +114,25 @@ export default class GameScene1 extends Phaser.Scene {
         this.questionbox.disableInteractive();this.questionbox.destroy();
           this.topbox.setDepth(-1);
           this.topmsg.destroy();
-        this.bottommsg.setTexture("welldone").setDepth(20);
+        this.bottommsg.setTexture("welldone").setDepth(2);
+        this.confettiAnim = this.add
+        .sprite(config.width / 2, config.height / 2 + 150, "confetti")
+        .setScale(0.8);
+
+      this.anims.create({
+        key: "confettishower",
+        frames: this.anims.generateFrameNames("confetti", {
+          start: 0,
+          end: 30,
+          zeroPad: 0,
+          prefix: "checkconfetti",
+          suffix: ".png",
+        }),
+        //frameRate: 10,
+        repeat: 0,
+      });
+      this.confettiAnim.play("confettishower").setDepth(5);
+      this.confettiAnim.on('animationcomplete', () => {this.confettiAnim.destroy();});
         this.nextbutton();
         this.button1.on("pointerdown",function(){this.bottommsg.setDepth(-1);
           if (prevquestion.length==4){this.cameratransition();}

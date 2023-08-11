@@ -92,9 +92,10 @@ export default class GameScene extends Phaser.Scene {
                 suffix: ".png",
               }),
               //frameRate: 10,
-              repeat: -1,
+              repeat: 0,
             });
             this.confettiAnim.play("confettishower");
+            this.confettiAnim.on('animationcomplete', () => {this.confettiAnim.destroy();});
             this.nextbutton();
             this.button1.on("pointerdown", function () {
               game.scene.stop("GameScene");
